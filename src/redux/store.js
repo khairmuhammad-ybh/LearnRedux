@@ -13,5 +13,5 @@ const store = createStore (
     rootReducer,
     composeEnhancer(applyMiddleware(...middlewares))
 )
-
+ 
 export default store

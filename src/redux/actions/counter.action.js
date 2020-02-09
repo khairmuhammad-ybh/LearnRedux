@@ -15,4 +15,4 @@ export const increase_counter_state = () => ({
 export const update_counter_state = number => ({
     type : UPDATE_COUNTER_STATE,
     payload: number
-})
+}) 

@@ -58,7 +58,7 @@ const stp = store => {
     return {
         counterButtonState: {
             count: Counter.count
-        }
+        } 
     }
 }
 

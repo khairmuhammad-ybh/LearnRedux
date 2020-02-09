@@ -22,7 +22,7 @@ const CounterButtonStore = (state = initState, action) => {
             if(action.payload.number === ''){
                 return {
                     count: 0
-                }
+                } 
             }
             return {
                 count : parseInt(action.payload.number)
