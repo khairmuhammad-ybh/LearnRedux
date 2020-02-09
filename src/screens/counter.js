@@ -52,8 +52,6 @@ class Counter extends Component {
                 break
             }
             case (3): {
-                console.log("test 2");
-
                 store.dispatch(counterButtonActions.update_counter2_state(data))
                 break
             }
