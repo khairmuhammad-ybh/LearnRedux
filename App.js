@@ -36,4 +36,4 @@ const AppNavigator = createStackNavigator({
 
 const MyNav = createAppContainer(AppNavigator)
 
-export default App;
+export default App; 
