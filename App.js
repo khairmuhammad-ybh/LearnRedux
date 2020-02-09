@@ -13,10 +13,16 @@ import { createStackNavigator } from 'react-navigation-stack';
 import Login from './src/screens/login'
 import Counter from './src/screens/counter'
 
+// Redux
+import { Provider } from 'react-redux'
+import store from './src/redux/store'
+
 class App extends Component {
   render() {
     return (
-      <MyNav/>
+      <Provider store={store}>
+        <MyNav/>
+      </Provider>
     );
   }
 }
