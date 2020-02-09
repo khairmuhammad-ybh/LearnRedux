@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { 
+import {
     View,
     Text,
     StyleSheet,
@@ -20,6 +20,8 @@ class Counter extends Component {
 
     onPressRedux = data => {
 
+        // let { counterButtonState } = this.props
+
         switch (data.cond) {
             case (0): {
                 store.dispatch(counterButtonActions.decrease_counter_state())
@@ -34,9 +36,30 @@ class Counter extends Component {
                 break
             }
         }
-
     }
-    
+
+    onPressRedux2 = data => {
+
+        // let { counterButtonState } = this.props
+
+        switch (data.cond) {
+            case (0): {
+                store.dispatch(counterButtonActions.decrease_counter2_state())
+                break
+            }
+            case (1): {
+                store.dispatch(counterButtonActions.increase_counter2_state())
+                break
+            }
+            case (3): {
+                console.log("test 2");
+
+                store.dispatch(counterButtonActions.update_counter2_state(data))
+                break
+            }
+        }
+    }
+
     render() {
         return (
             <View style={styles.mainContainer}>
@@ -46,6 +69,14 @@ class Counter extends Component {
                     <Text style={styles.text}>{this.props.counterButtonState.count}</Text>
                     <TouchableOpacity style={styles.touchOpacity} onPress={() => { this.onPressRedux({ cond: 0 }) }}><Text style={styles.text}>-</Text></TouchableOpacity>
                 </View>
+
+                <TextInput style={styles.textInput} keyboardType={'number-pad'} onChangeText={number => { this.onPressRedux2({ cond: 3, number }) }}>{this.props.counterButtonState.count2}</TextInput>
+                <View style={styles.container}>
+                    <TouchableOpacity style={styles.touchOpacity} onPress={() => { this.onPressRedux2({ cond: 1 }) }}><Text style={styles.text}>+</Text></TouchableOpacity>
+                    <Text style={styles.text}>{this.props.counterButtonState.count2}</Text>
+                    <TouchableOpacity style={styles.touchOpacity} onPress={() => { this.onPressRedux2({ cond: 0 }) }}><Text style={styles.text}>-</Text></TouchableOpacity>
+                </View>
+
                 <TouchableOpacity style={styles.touchOpacity} onPress={() => this.props.navigation.navigate('Login')}><Text style={styles.navigateLink}>Go to LOGIN Screen</Text></TouchableOpacity>
             </View>
         );
@@ -54,11 +85,13 @@ class Counter extends Component {
 
 const stp = store => {
     let { Counter } = store
+    let { Counter2 } = store
 
     return {
         counterButtonState: {
-            count: Counter.count
-        } 
+            count: Counter.count,
+            count2: Counter2.count2
+        }
     }
 }
 
@@ -86,7 +119,7 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 30
     },
-    navigateLink : {
+    navigateLink: {
         fontSize: 20
     }
 });
