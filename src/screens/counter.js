@@ -9,7 +9,7 @@ import {
 
 // Redux
 import { connect } from "react-redux";
-import store from "../redux/store";
+import {store} from "../redux/store";
 import * as counterButtonActions from '../redux/actions'
 
 class Counter extends Component {
